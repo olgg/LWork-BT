@@ -32,6 +32,8 @@ namespace DataModel
 			{
 				days = today.Day;
 			}
+			else if (today < date)
+				return;
 
 			for (int i = 1; i <= days; i++)
 			{
@@ -80,6 +82,7 @@ namespace DataModel
 				foreach (var dayWorktime in dayWorktimes)
 				{
 					IClosedDayWorktime worktime = dayCalculator.GetWorktime(dayWorktime.Key);
+					dayDetails.Add(dayWorktime.Key, worktime);
 				}
 			}
 			return dayDetails.Values;

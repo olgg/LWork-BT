@@ -55,11 +55,17 @@
     <Compile Include="Controls\TimeTableControl.Designer.cs">
       <DependentUpon>TimeTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimeCalculator\CurrentTimeCalculator.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Dialogs\MonthReportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Dialogs\MonthReportDialog.Designer.cs">
+      <DependentUpon>MonthReportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeCalculator\CurrentTimeCalculator.cs" />
+    <Compile Include="Dialogs\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -68,8 +74,11 @@
     <EmbeddedResource Include="Controls\TimeTableControl.resx">
       <DependentUpon>TimeTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Dialogs\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\MonthReportDialog.resx">
+      <DependentUpon>MonthReportDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
