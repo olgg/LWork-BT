@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataModel
+{
+	public class XmlMonthCalculator : IMonthCalculator
+	{
+		private readonly DateTime date;
+		
+		private TimeSpan totalHours = TimeSpan.Zero;
+		private Dictionary<DateTime, IClosedDayWorktime> dayDetails;
+		private Dictionary<DateTime, TimeSpan> dayWorktimes;
+		private ClosedDayCalculator dayCalculator;
+
+		public XmlMonthCalculator(DateTime date)
+		{
+			this.date = date;
+			dayCalculator = new ClosedDayCalculator(new XmlDayDataProvider());
+			InitDaysList();
+		}
+
+		private void InitDaysList()
+		{
+			dayWorktimes = new Dictionary<DateTime, TimeSpan>();
+			int days = DateTime.DaysInMonth(date.Year, date.Month);
+			DateTime today = DateTime.Now;
+
+			if (date.Year == today.Year && date.Month == today.Month)
+			{
+				days = today.Day;
+			}
+
+			for (int i = 1; i <= days; i++)
+			{
+				TimeSpan dayWorktime = GetDayWorktime(i);
+				DateTime currentDate = new DateTime(date.Year, date.Month, i);
+				dayWorktimes.Add(currentDate, dayWorktime);
+				totalHours = totalHours + dayWorktime;
+			}
+		}
+
+		private TimeSpan GetDayWorktime(int day)
+		{
+			DateTime current = new DateTime(date.Year, date.Month, day);
+			if (current.DayOfWeek == DayOfWeek.Saturday || current.DayOfWeek == DayOfWeek.Sunday)
+				return TimeSpan.Zero;
+			else
+				return new TimeSpan(8, 0, 0);
+		}
+
+		#region Реализация IMonthCalculator...
+
+		public IWorktime GetWorktime()
+		{
+			var dayDetails = GetDayDetails();
+			TimeSpan elapsed = TimeSpan.Zero;
+
+			foreach (var dayDetail in dayDetails)
+				elapsed = elapsed + dayDetail.Elapsed;
+
+			TimeSpan left = TimeSpan.Zero;
+			TimeSpan overtime = TimeSpan.Zero;
+
+			if (elapsed >= totalHours)
+				overtime = elapsed - totalHours;
+			else
+				left = totalHours - elapsed;
+
+			return new MonthWorktime() { Elapsed = elapsed, Left = left, Overtime = overtime };
+		}
+
+		public IEnumerable<IClosedDayWorktime> GetDayDetails()
+		{
+			if (dayDetails == null)
+			{
+				dayDetails = new Dictionary<DateTime, IClosedDayWorktime>();
+				foreach (var dayWorktime in dayWorktimes)
+				{
+					IClosedDayWorktime worktime = dayCalculator.GetWorktime(dayWorktime.Key);
+				}
+			}
+			return dayDetails.Values;
+		}
+
+		#endregion
+
+		private class MonthWorktime : IWorktime
+		{
+			public TimeSpan Elapsed	{ get; set;	}
+
+			public TimeSpan Left { get; set; }
+
+			public TimeSpan Overtime { get;	set; }
+		}
+	}
+}
