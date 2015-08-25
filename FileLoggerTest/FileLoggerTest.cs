@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FileLoggerTest
 {
+	
 	[TestClass]
 	public class FileLoggerTest
 	{
