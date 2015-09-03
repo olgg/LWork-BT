@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lwork.Contracts.DataLoggers;
 using Lwork.Core.Calculators;
-using Lwork.Core.DataLoggers;
+using Lwork.XmlData.DataLoggers;
 
 namespace LworkBt
 {
@@ -39,7 +39,7 @@ namespace LworkBt
 
 		private void TryRestoreCalculator()
 		{
-			FileTimeCalculator saved = new FileTimeCalculator(DateTime.Now);
+			StatefullDayCalculator saved = new StatefullDayCalculator(DateTime.Now, new XmlDayDataProvider());
 			if (saved.GetState().Ready)
 			{
 				timeCalculator = new CurrentTimeCalculator(new SystemClock(), saved);

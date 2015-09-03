@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using Lwork.Contracts.DataLoggers;
-using Lwork.Core.DataLoggers;
+using Lwork.XmlData.DataLoggers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FileLoggerTest

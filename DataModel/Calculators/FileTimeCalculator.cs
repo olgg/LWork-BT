@@ -8,20 +8,19 @@ using System.Xml.Linq;
 using Lwork.Contracts.Calculators;
 using Lwork.Contracts.DataProviders;
 using Lwork.Contracts.Output;
-using Lwork.Core.DataProviders;
 using Lwork.Core.Output;
 
 namespace Lwork.Core.Calculators
 {
-	public class FileTimeCalculator : DayCalculatorBase, IStatefullDayCalculator
+	public class StatefullDayCalculator : DayCalculatorBase, IStatefullDayCalculator
 	{
 		private readonly DateTime day;
 		private readonly IDayDataProvider dataProvider;
 
-		public FileTimeCalculator(DateTime day)
+		public StatefullDayCalculator(DateTime day, IDayDataProvider dataProvider)
 		{
 			this.day = day;
-			this.dataProvider = new XmlDayDataProvider();
+			this.dataProvider = dataProvider;
 		}
 
 		protected override IEnumerable<IRecordRow> Records

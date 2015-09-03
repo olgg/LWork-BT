@@ -66,6 +66,10 @@
       <Project>{e52400dd-5097-4404-af88-89d0a173e2b5}</Project>
       <Name>Lwork.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XmlData\Lwork.XmlData.csproj">
+      <Project>{d9068727-c47a-4b90-84ff-ee44e02ae626}</Project>
+      <Name>Lwork.XmlData</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Calculators;
+using Lwork.Contracts.DataProviders;
 using Lwork.Contracts.Output;
-using Lwork.Core.DataProviders;
 
 namespace Lwork.Core.Calculators
 {
@@ -18,10 +18,10 @@ namespace Lwork.Core.Calculators
 		private Dictionary<DateTime, TimeSpan> dayWorktimes;
 		private ClosedDayCalculator dayCalculator;
 
-		public XmlMonthCalculator(DateTime date)
+		public XmlMonthCalculator(DateTime date, IDayDataProvider dataProvider)
 		{
 			this.date = date;
-			dayCalculator = new ClosedDayCalculator(new XmlDayDataProvider());
+			dayCalculator = new ClosedDayCalculator(dataProvider);
 			InitDaysList();
 		}
 
