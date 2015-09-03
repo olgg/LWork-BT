@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Calculators;
-using DataModel;
 
-namespace DataModel
+namespace Lwork.Core.Calculators
 {
 	public class TimeCalculatorState : IDayCalculatorState
 	{

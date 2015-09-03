@@ -46,9 +46,7 @@
     <Compile Include="Calculators\TimeCalculatorState.cs" />
     <Compile Include="Calculators\XmlMonthCalculator.cs" />
     <Compile Include="DataLogger\XmlFileLogger.cs" />
-    <Compile Include="DataSource\IDayDataProvider.cs" />
-    <Compile Include="DataSource\XmlDayDataProvider.cs" />
-    <Compile Include="DataSource\IRecordRow.cs" />
+    <Compile Include="DataProviders\XmlDayDataProvider.cs" />
     <Compile Include="OutputData\WorkTimeInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

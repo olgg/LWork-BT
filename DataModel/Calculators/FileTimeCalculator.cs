@@ -6,9 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Lwork.Contracts.Calculators;
+using Lwork.Contracts.DataProviders;
 using Lwork.Contracts.Output;
+using Lwork.Core.DataProviders;
+using Lwork.Core.Output;
 
-namespace DataModel
+namespace Lwork.Core.Calculators
 {
 	public class FileTimeCalculator : DayCalculatorBase, IStatefullDayCalculator
 	{

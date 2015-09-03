@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Calculators;
 using Lwork.Contracts.Output;
+using Lwork.Core.DataProviders;
 
-namespace DataModel
+namespace Lwork.Core.Calculators
 {
 	public class XmlMonthCalculator : IMonthCalculator
 	{

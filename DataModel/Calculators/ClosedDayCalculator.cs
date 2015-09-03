@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Calculators;
+using Lwork.Contracts.DataProviders;
 using Lwork.Contracts.Output;
+using Lwork.Core.Output;
 
-namespace DataModel
+namespace Lwork.Core.Calculators
 {
 	public class ClosedDayCalculator : DayCalculatorBase, IClosedDayCalculator
 	{

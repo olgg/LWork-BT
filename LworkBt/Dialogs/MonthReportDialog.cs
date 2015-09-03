@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lwork.Contracts.Calculators;
-using DataModel;
 
 namespace LworkBt
 {

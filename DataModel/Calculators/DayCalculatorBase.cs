@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lwork.Contracts.DataProviders;
+using Lwork.Core.Output;
 
-namespace DataModel
+namespace Lwork.Core.Calculators
 {
 	public abstract class DayCalculatorBase
 	{

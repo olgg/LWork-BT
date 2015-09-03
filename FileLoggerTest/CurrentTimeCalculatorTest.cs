@@ -1,6 +1,7 @@
 ﻿using System;
-using DataModel;
 using Lwork.Contracts.Clocks;
+using Lwork.Core.Calculators;
+using Lwork.Core.Output;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FileLoggerTest

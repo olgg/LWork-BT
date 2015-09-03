@@ -15,7 +15,6 @@ namespace LworkBt
 		private BluetoothDeviceInfo device;
 		private Guid deviceGiud;
 		private bool inRange = false;
-		private bool oldInRange = false;
 		private Action<string> newMessage;
 
 		public BtDiscover(string deviceName, Action<string> newMessage = null)

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Output;
 
-namespace DataModel
+namespace Lwork.Core.Output
 {
 	/// <summary>
 	/// Информация о рабочем времени

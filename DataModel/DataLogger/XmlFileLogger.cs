@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Lwork.Contracts.DataLoggers;
 
-namespace DataModel
+namespace Lwork.Core.DataLoggers
 {
 	public class XmlFileLogger : IDataLogger
 	{

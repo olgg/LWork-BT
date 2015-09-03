@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataModel;
 using Lwork.Contracts.DataLoggers;
+using Lwork.Core.Calculators;
+using Lwork.Core.DataLoggers;
 
 namespace LworkBt
 {
