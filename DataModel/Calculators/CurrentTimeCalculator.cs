@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Calculators;
+using Lwork.Contracts.Clocks;
 using Lwork.Contracts.Output;
 
 namespace DataModel
@@ -198,11 +199,6 @@ namespace DataModel
 
 			end = begin + WorkTimeInfo.DayWorkTime + absent;
 		}
-	}
-
-	public interface IClock
-	{
-		DateTime GetTime();
 	}
 
 	public class SystemClock : IClock

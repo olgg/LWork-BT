@@ -44,14 +44,15 @@
     <Compile Include="Calculators\IDayCalculatorState.cs" />
     <Compile Include="Calculators\IMonthCalculator.cs" />
     <Compile Include="Calculators\IStatefullDayCalculator.cs" />
+    <Compile Include="Clocks\IClock.cs" />
+    <Compile Include="DataLoggers\DeviceStatus.cs" />
+    <Compile Include="DataLoggers\IDataLogger.cs" />
     <Compile Include="Output\IClosedDayWorktime.cs" />
     <Compile Include="Output\IDayWorktime.cs" />
     <Compile Include="Output\IWorktime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clocks\" />
-    <Folder Include="DataLoggers\" />
     <Folder Include="DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

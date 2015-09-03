@@ -45,8 +45,6 @@
     <Compile Include="Calculators\FileTimeCalculator.cs" />
     <Compile Include="Calculators\TimeCalculatorState.cs" />
     <Compile Include="Calculators\XmlMonthCalculator.cs" />
-    <Compile Include="DataLogger\DeviceStatus.cs" />
-    <Compile Include="DataLogger\IDataLogger.cs" />
     <Compile Include="DataLogger\XmlFileLogger.cs" />
     <Compile Include="DataSource\IDayDataProvider.cs" />
     <Compile Include="DataSource\XmlDayDataProvider.cs" />
