@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using DataModel;
-using LworkBt;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FileLoggerTest

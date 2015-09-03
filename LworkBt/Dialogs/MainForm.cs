@@ -225,10 +225,10 @@ namespace LworkBt
 
 		private void menuItemShowMonth_Click(object sender, EventArgs e)
 		{
-			using (MonthReportDialog mrd = new MonthReportDialog())
-			{
-				mrd.ShowDialog();
-			}
+			//using (MonthReportDialog mrd = new MonthReportDialog())
+			//{
+			//	mrd.ShowDialog();
+			//}
 		}
 	}
 }

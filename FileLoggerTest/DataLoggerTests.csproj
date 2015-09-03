@@ -58,13 +58,13 @@
     <Compile Include="FileTimeCalculatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj">
+      <Project>{6d09b7e1-6ba7-49f1-9934-2dc0fd26062a}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModel\DataModel.csproj">
       <Project>{e52400dd-5097-4404-af88-89d0a173e2b5}</Project>
       <Name>DataModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LworkBt\LworkBt.csproj">
-      <Project>{19cb5f41-4ea6-4694-b1fa-58774e08b307}</Project>
-      <Name>LworkBt</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

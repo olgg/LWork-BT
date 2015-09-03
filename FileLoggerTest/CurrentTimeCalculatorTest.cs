@@ -1,6 +1,5 @@
 ﻿using System;
 using DataModel;
-using LworkBt;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FileLoggerTest

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E52400DD-5097-4404-AF88-89D0A173E2B5}</ProjectGuid>
+    <ProjectGuid>{6D09B7E1-6BA7-49F1-9934-2DC0FD26062A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataModel</RootNamespace>
-    <AssemblyName>DataModel</AssemblyName>
+    <RootNamespace>Contracts</RootNamespace>
+    <AssemblyName>Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,26 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculators\ClosedDayCalculator.cs" />
-    <Compile Include="Calculators\CurrentTimeCalculator.cs" />
-    <Compile Include="Calculators\DayCalculatorBase.cs" />
-    <Compile Include="Calculators\FileTimeCalculator.cs" />
-    <Compile Include="Calculators\TimeCalculatorState.cs" />
-    <Compile Include="Calculators\XmlMonthCalculator.cs" />
-    <Compile Include="DataLogger\DeviceStatus.cs" />
-    <Compile Include="DataLogger\IDataLogger.cs" />
-    <Compile Include="DataLogger\XmlFileLogger.cs" />
-    <Compile Include="DataSource\IDayDataProvider.cs" />
-    <Compile Include="DataSource\XmlDayDataProvider.cs" />
-    <Compile Include="DataSource\IRecordRow.cs" />
-    <Compile Include="OutputData\WorkTimeInfo.cs" />
+    <Compile Include="Calculators\IClosedDayCalculator.cs" />
+    <Compile Include="Calculators\IDayCalculator.cs" />
+    <Compile Include="Calculators\IDayCalculatorState.cs" />
+    <Compile Include="Calculators\IMonthCalculator.cs" />
+    <Compile Include="Calculators\IStatefullDayCalculator.cs" />
+    <Compile Include="Output\IClosedDayWorktime.cs" />
+    <Compile Include="Output\IDayWorktime.cs" />
+    <Compile Include="Output\IWorktime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\Contracts.csproj">
-      <Project>{6d09b7e1-6ba7-49f1-9934-2dc0fd26062a}</Project>
-      <Name>Contracts</Name>
-    </ProjectReference>
+    <Folder Include="Clocks\" />
+    <Folder Include="DataLoggers\" />
+    <Folder Include="DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
