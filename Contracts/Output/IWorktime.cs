@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lwork.Output
+namespace Lwork.Contracts.Output
 {
 	/// <summary>
 	/// Данное по отработанному времени за некоторый период

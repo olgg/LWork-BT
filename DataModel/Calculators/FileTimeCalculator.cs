@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Lwork.Contracts.Calculators;
-using Lwork.Output;
+using Lwork.Contracts.Output;
 
 namespace DataModel
 {
