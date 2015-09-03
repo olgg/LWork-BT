@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lwork.Contracts.Calculators;
 using Lwork.Contracts.Clocks;
+using Lwork.Contracts.DataProviders;
 using Lwork.Contracts.Output;
 using Lwork.Core.Output;
 
@@ -15,9 +16,11 @@ namespace Lwork.Core.Calculators
 		private DateTime previosTime;
 		private DateTime current;
 
+		private readonly IClock clock;
+		private readonly IDayWorktimeProvider dayWorktime;
+
 		private bool oldStatus = false;
 		private bool status = false;
-		private IClock clock;
 		private WorkTimeInfo timeInfo;
 		private TimeCalculatorState state;
 
@@ -28,16 +31,19 @@ namespace Lwork.Core.Calculators
 		private DateTime begin;
 		private DateTime end;
 
-		public CurrentTimeCalculator(IClock clock)
+		public CurrentTimeCalculator(IClock clock, IDayWorktimeProvider dayWorktime)
 		{
 			this.clock = clock;
+			this.dayWorktime = dayWorktime;
+
 			this.timeInfo = new WorkTimeInfo();
 			this.state = new TimeCalculatorState();
 		}
 
-		public CurrentTimeCalculator(IClock clock, IStatefullDayCalculator timeCalculator)
+		public CurrentTimeCalculator(IClock clock, IDayWorktimeProvider dayWorktime, IStatefullDayCalculator timeCalculator)
 		{
 			this.clock = clock;
+			this.dayWorktime = dayWorktime;
 
 			LoadTimeInfo(timeCalculator.GetWorktime());
 			LoadState(timeCalculator.GetState());
@@ -66,6 +72,11 @@ namespace Lwork.Core.Calculators
 
 		#endregion 
 
+		private TimeSpan TodayWorktime
+		{
+			get { return dayWorktime.GetDayWorktime(clock.GetTime()); }
+		}
+
 		private void LoadTimeInfo(IDayWorktime worktime)
 		{
 			timeInfo = new WorkTimeInfo()
@@ -83,7 +94,7 @@ namespace Lwork.Core.Calculators
 			absent = timeInfo.Absent;
 			overtime = timeInfo.Overtime;
 			begin = timeInfo.Begin;
-			end = begin + WorkTimeInfo.DayWorkTime + absent;	
+			end = begin + TodayWorktime + absent;	
 		}
 
 		private void LoadState(IDayCalculatorState calculatorState)
@@ -187,26 +198,31 @@ namespace Lwork.Core.Calculators
 		private void CalculateAndShowTimes()
 		{
 			left = TimeSpan.Zero;
-			if (elapsed < WorkTimeInfo.DayWorkTime)
+			if (elapsed < TodayWorktime)
 			{
-				left = WorkTimeInfo.DayWorkTime - elapsed;
+				left = TodayWorktime - elapsed;
 				if (elapsed > TimeSpan.Zero)
 					left += new TimeSpan(0, 1, 0);
 			}
 
 			overtime = TimeSpan.Zero;
-			if (elapsed >= WorkTimeInfo.DayWorkTime)
-				overtime = elapsed - WorkTimeInfo.DayWorkTime;
+			if (elapsed >= TodayWorktime)
+				overtime = elapsed - TodayWorktime;
 
-			end = begin + WorkTimeInfo.DayWorkTime + absent;
+			end = begin + TodayWorktime + absent;
 		}
 	}
 
-	public class SystemClock : IClock
+	public class SystemClock : IClock, IDayWorktimeProvider
 	{
 		public DateTime GetTime()
 		{
 			return DateTime.Now;
+		}
+
+		public TimeSpan GetDayWorktime(DateTime date)
+		{
+			return new TimeSpan(8, 0, 0);
 		}
 	}
 }

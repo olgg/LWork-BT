@@ -9,19 +9,21 @@ using Lwork.Contracts.Output;
 
 namespace Lwork.Core.Calculators
 {
-	public class XmlMonthCalculator : IMonthCalculator
+	public class MonthCalculator : IMonthCalculator
 	{
 		private readonly DateTime date;
-		
+		private readonly IDayWorktimeProvider worktimeProvider;
+		private readonly ClosedDayCalculator dayCalculator;
+
 		private TimeSpan totalHours = TimeSpan.Zero;
 		private Dictionary<DateTime, IClosedDayWorktime> dayDetails;
 		private Dictionary<DateTime, TimeSpan> dayWorktimes;
-		private ClosedDayCalculator dayCalculator;
 
-		public XmlMonthCalculator(DateTime date, IDayDataProvider dataProvider)
+
+		public MonthCalculator(DateTime date, IDayDataProvider dataProvider, IDayWorktimeProvider worktimeProvider)
 		{
 			this.date = date;
-			dayCalculator = new ClosedDayCalculator(dataProvider);
+			dayCalculator = new ClosedDayCalculator(dataProvider, worktimeProvider);
 			InitDaysList();
 		}
 

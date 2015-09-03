@@ -40,14 +40,15 @@ namespace LworkBt
 
 		private void TryRestoreCalculator()
 		{
-			StatefullDayCalculator saved = new StatefullDayCalculator(DateTime.Now, new XmlDayDataProvider());
+			SystemClock clock = new SystemClock();
+			StatefullDayCalculator saved = new StatefullDayCalculator(DateTime.Now, new XmlDayDataProvider(), clock);
 			if (saved.GetState().Ready)
 			{
-				timeCalculator = new CurrentTimeCalculator(new SystemClock(), saved);
+				timeCalculator = new CurrentTimeCalculator(clock, clock, saved);
 				ShowTimes();
 			}
 			else
-				timeCalculator = new CurrentTimeCalculator(new SystemClock());
+				timeCalculator = new CurrentTimeCalculator(clock, clock);
 		}
 
 		private void SetCaptions()

@@ -48,6 +48,7 @@
     <Compile Include="DataLoggers\DeviceStatus.cs" />
     <Compile Include="DataLoggers\IDataLogger.cs" />
     <Compile Include="DataProviders\IDayDataProvider.cs" />
+    <Compile Include="DataProviders\IDayWorktimeProvider.cs" />
     <Compile Include="DataProviders\IRecordRow.cs" />
     <Compile Include="Output\IClosedDayWorktime.cs" />
     <Compile Include="Output\IDayWorktime.cs" />

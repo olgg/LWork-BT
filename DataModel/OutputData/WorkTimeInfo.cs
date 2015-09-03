@@ -12,15 +12,15 @@ namespace Lwork.Core.Output
 	/// </summary>
 	public class WorkTimeInfo : IDayWorktime
 	{
-		private const int hoursOfDayWork = 8;
+		//private const int hoursOfDayWork = 8;
 
-		/// <summary>
-		/// Продолжительность рабочего дня
-		/// </summary>
-		public static TimeSpan DayWorkTime
-		{
-			get { return new TimeSpan(hoursOfDayWork, 0, 0); }
-		}
+		///// <summary>
+		///// Продолжительность рабочего дня
+		///// </summary>
+		//public static TimeSpan DayWorkTime
+		//{
+		//	get { return new TimeSpan(hoursOfDayWork, 0, 0); }
+		//}
 
 		/// <summary>
 		/// Отработано времени за день

@@ -10,13 +10,20 @@ namespace Lwork.Core.Calculators
 {
 	public abstract class DayCalculatorBase
 	{
+		protected readonly IDayWorktimeProvider worktimeData;
+
 		protected TimeSpan elapsed;
 		protected TimeSpan left;
 		protected TimeSpan absent;
 		protected TimeSpan overtime;
 		protected DateTime begin;
 		protected DateTime end;
-		
+
+		protected DayCalculatorBase(IDayWorktimeProvider worktimeData)
+		{
+			this.worktimeData = worktimeData;
+		}
+
 		protected abstract IEnumerable<IRecordRow> Records { get; }
 
 		protected void Calculate()
@@ -30,16 +37,18 @@ namespace Lwork.Core.Calculators
 
 		private void CalculateLeft()
 		{
-			if (elapsed < WorkTimeInfo.DayWorkTime)
-				left = WorkTimeInfo.DayWorkTime - elapsed;
+			TimeSpan worktime = GetWorktime();
+			if (elapsed < worktime)
+				left = worktime - elapsed;
 			else
 				left = TimeSpan.Zero;
 		}
 
 		private void CalculateOvertime()
 		{
-			if (elapsed > WorkTimeInfo.DayWorkTime)
-				overtime = elapsed - WorkTimeInfo.DayWorkTime;
+			TimeSpan worktime = GetWorktime();
+			if (elapsed > worktime)
+				overtime = elapsed - worktime;
 			else
 				overtime = TimeSpan.Zero;
 		}
@@ -97,6 +106,18 @@ namespace Lwork.Core.Calculators
 			{
 				end = info.Time;
 			}
+		}
+
+		private TimeSpan GetWorktime()
+		{
+			TimeSpan result = TimeSpan.Zero;
+			if (Records.Any())
+			{
+				DateTime day = Records.First().Time;
+				result = worktimeData.GetDayWorktime(day);
+			}
+			return result;
+
 		}
 	}
 }

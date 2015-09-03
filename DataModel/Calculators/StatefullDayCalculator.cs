@@ -17,7 +17,8 @@ namespace Lwork.Core.Calculators
 		private readonly DateTime day;
 		private readonly IDayDataProvider dataProvider;
 
-		public StatefullDayCalculator(DateTime day, IDayDataProvider dataProvider)
+		public StatefullDayCalculator(DateTime day, IDayDataProvider dataProvider, IDayWorktimeProvider worktimeProvider)
+			: base(worktimeProvider)
 		{
 			this.day = day;
 			this.dataProvider = dataProvider;

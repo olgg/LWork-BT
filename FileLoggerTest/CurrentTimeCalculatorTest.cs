@@ -1,5 +1,6 @@
 ﻿using System;
 using Lwork.Contracts.Clocks;
+using Lwork.Contracts.DataProviders;
 using Lwork.Core.Calculators;
 using Lwork.Core.Output;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -108,7 +109,7 @@ namespace FileLoggerTest
 			instance.UpdateStatus(true);
 
 			var worktime = instance.GetWorktime();
-			DateTime expectedEnd = startWork + WorkTimeInfo.DayWorkTime + delta3;
+			DateTime expectedEnd = startWork + clock.GetDayWorktime(startWork) + delta3;
 			Assert.AreEqual<DateTime>(expectedEnd, worktime.End);
 		}
 
@@ -153,11 +154,11 @@ namespace FileLoggerTest
 
 		private CurrentTimeCalculator GetInstance()
 		{
-			CurrentTimeCalculator instance = new CurrentTimeCalculator(clock);
+			CurrentTimeCalculator instance = new CurrentTimeCalculator(clock, clock);
 			return instance;
 		}
 
-		private class CkockMoq : IClock
+		private class CkockMoq : IClock, IDayWorktimeProvider
 		{
 			private DateTime currentTime;
 
@@ -169,6 +170,11 @@ namespace FileLoggerTest
 			public DateTime GetTime()
 			{
 				return currentTime;
+			}
+
+			public TimeSpan GetDayWorktime(DateTime date)
+			{
+				return new TimeSpan(8, 0, 0);
 			}
 		}
 	}

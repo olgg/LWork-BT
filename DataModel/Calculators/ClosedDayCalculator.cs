@@ -16,7 +16,8 @@ namespace Lwork.Core.Calculators
 		private DateTime day;
 		private IDayDataProvider dataProvider;
 
-		public ClosedDayCalculator(IDayDataProvider dataProvider)
+		public ClosedDayCalculator(IDayDataProvider dataProvider, IDayWorktimeProvider worktimeProvider)
+			: base(worktimeProvider)
 		{
 			this.dataProvider = dataProvider;
 		}
