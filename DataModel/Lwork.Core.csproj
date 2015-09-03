@@ -42,7 +42,7 @@
     <Compile Include="Calculators\ClosedDayCalculator.cs" />
     <Compile Include="Calculators\CurrentTimeCalculator.cs" />
     <Compile Include="Calculators\DayCalculatorBase.cs" />
-    <Compile Include="Calculators\FileTimeCalculator.cs" />
+    <Compile Include="Calculators\StatefullDayCalculator.cs" />
     <Compile Include="Calculators\TimeCalculatorState.cs" />
     <Compile Include="Calculators\XmlMonthCalculator.cs" />
     <Compile Include="OutputData\WorkTimeInfo.cs" />

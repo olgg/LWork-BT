@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Lwork.Contracts.DataLoggers;
 using Lwork.Contracts.DataProviders;
+using Lwork.XmlData.DataLoggers;
 
-namespace Lwork.XmlData.DataLoggers
+namespace Lwork.XmlData.DataProviders
 {
 	public class XmlDayDataProvider : IDayDataProvider
 	{

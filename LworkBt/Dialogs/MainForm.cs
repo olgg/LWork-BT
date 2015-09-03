@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Lwork.Contracts.DataLoggers;
 using Lwork.Core.Calculators;
 using Lwork.XmlData.DataLoggers;
+using Lwork.XmlData.DataProviders;
 
 namespace LworkBt
 {
