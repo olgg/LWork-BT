@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\Contracts.csproj">
+    <ProjectReference Include="..\Contracts\Lwork.Contracts.csproj">
       <Project>{6d09b7e1-6ba7-49f1-9934-2dc0fd26062a}</Project>
-      <Name>Contracts</Name>
+      <Name>Lwork.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

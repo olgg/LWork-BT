@@ -5,11 +5,11 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LworkBt", "LworkBt\LworkBt.csproj", "{19CB5F41-4EA6-4694-B1FA-58774E08B307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoggerTests", "FileLoggerTest\DataLoggerTests.csproj", "{2841138F-0C9A-41B8-9618-288D7731085B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lwork.Tests", "FileLoggerTest\Lwork.Tests.csproj", "{2841138F-0C9A-41B8-9618-288D7731085B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{E52400DD-5097-4404-AF88-89D0A173E2B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lwork.Core", "DataModel\Lwork.Core.csproj", "{E52400DD-5097-4404-AF88-89D0A173E2B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{6D09B7E1-6BA7-49F1-9934-2DC0FD26062A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lwork.Contracts", "Contracts\Lwork.Contracts.csproj", "{6D09B7E1-6BA7-49F1-9934-2DC0FD26062A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
