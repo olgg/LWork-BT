@@ -42,20 +42,11 @@ namespace Lwork.Core.Calculators
 
 			for (int i = 1; i <= days; i++)
 			{
-				TimeSpan dayWorktime = GetDayWorktime(i);
 				DateTime currentDate = new DateTime(date.Year, date.Month, i);
+				TimeSpan dayWorktime = worktimeProvider.GetDayWorktime(currentDate);
 				dayWorktimes.Add(currentDate, dayWorktime);
 				totalHours = totalHours + dayWorktime;
 			}
-		}
-
-		private TimeSpan GetDayWorktime(int day)
-		{
-			DateTime current = new DateTime(date.Year, date.Month, day);
-			if (current.DayOfWeek == DayOfWeek.Saturday || current.DayOfWeek == DayOfWeek.Sunday)
-				return TimeSpan.Zero;
-			else
-				return new TimeSpan(8, 0, 0);
 		}
 
 		#region Реализация IMonthCalculator...
