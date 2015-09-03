@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Contracts.Output;
+using Lwork.Output;
 
-namespace Contracts.Calculators
+namespace Lwork.Contracts.Calculators
 {
 	/// <summary>
 	/// Калькулятор для расчета рабочего времени по завершенному дню

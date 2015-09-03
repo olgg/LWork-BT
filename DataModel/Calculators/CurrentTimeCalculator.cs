@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Contracts.Calculators;
-using Contracts.Output;
+using Lwork.Contracts.Calculators;
+using Lwork.Output;
 
 namespace DataModel
 {

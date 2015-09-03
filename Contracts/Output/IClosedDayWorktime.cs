@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts.Output
+namespace Lwork.Output
 {
 	/// <summary>
 	/// Данные о рабочем времени по завершенному рабочему дню

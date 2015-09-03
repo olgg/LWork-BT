@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts.Calculators
+namespace Lwork.Contracts.Calculators
 {
 	public interface IStatefullDayCalculator : IDayCalculator
 	{	
